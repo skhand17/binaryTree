@@ -16,7 +16,7 @@ public class KthSmallestLargestElementInBST {
         int[]counter = new int[]{0};
         int[]kSmallest = new int[1];
         int[]kLargest = new int[1];
-        kSmallestElement(root, 4, counter, kSmallest);
+        kSmallestElement(root, 3, counter, kSmallest);
         System.out.println(kSmallest[0]);
         counter[0] = 0;
         kLargestElement(root, 2, counter, kLargest);

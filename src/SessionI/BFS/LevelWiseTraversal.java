@@ -21,23 +21,30 @@ public class LevelWiseTraversal {
 
     public static List<List<Integer>> bfs(Node root) {
 
+        List<List<Integer>> result = new ArrayList<>();
         Queue<Node> queue = new LinkedList<>();
-        queue.offer(root);
-        List<List<Integer>> list = new LinkedList<List<Integer>>();
-        while (!queue.isEmpty()){
-
-            int levelNum = queue.size();
-            List<Integer> subList = new LinkedList<Integer>();
-
-            for(int i=0; i<levelNum; i++){
-                if(queue.peek().left != null)
-                    queue.offer(queue.peek().left);
-                if(queue.peek().right != null)
-                    queue.offer(queue.peek().right);
-                subList.add(queue.poll().data);
-            }
-            list.add(subList);
+        if(root == null){
+            return null;
         }
-        return list;
+        queue.offer(root);
+
+        while(!queue.isEmpty()) {
+
+            List<Integer> temp = new ArrayList<>();
+            int levelNumber = queue.size();
+
+            for(int i=0; i<levelNumber; i++) {
+
+                if(queue.peek().left != null) {
+                    queue.offer(queue.peek().left);
+                }
+                if(queue.peek().right != null){
+                    queue.offer(queue.peek().right);
+                }
+                temp.add(queue.poll().data);
+            }
+            result.add(temp);
+        }
+        return result;
     }
 }

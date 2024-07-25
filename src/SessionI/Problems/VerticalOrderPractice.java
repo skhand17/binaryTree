@@ -61,10 +61,10 @@ public class VerticalOrderPractice {
 
             if(!map.get(vertical).containsKey(level))
                 map.get(vertical).put(level, new PriorityQueue<>());
-//            map.get(vertical).get(level).offer(node.data);
+            map.get(vertical).get(level).offer(node.data);
 
-            if(map.get(vertical).size() <= 1)
-                map.get(vertical).get(level).offer(node.data);
+//            if(map.get(vertical).size() <= 1)
+//                map.get(vertical).get(level).offer(node.data);
 
             if(node.left != null)
                 queue.offer(new TuplePractice(node.left, vertical - 1, level + 1));

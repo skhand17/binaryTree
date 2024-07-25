@@ -34,7 +34,7 @@ public class MaximumPathSum {
     private static int maxPathSumCal(int[] maxSum, Node root) {
 
         if(root == null)
-            return 0;
+            return Integer.MIN_VALUE;
 
         int lh = Math.max(0, maxPathSumCal(maxSum, root.left));
         int rh = Math.max(0, maxPathSumCal(maxSum, root.right));
